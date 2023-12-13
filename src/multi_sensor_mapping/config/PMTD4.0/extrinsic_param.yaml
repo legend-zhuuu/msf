@@ -1,0 +1,33 @@
+# PMTD 4.0, Rs-M1 - MC2132
+lidar:
+  - 
+    name: A
+    x: 0.00
+    y: -0.0485
+    z: 0.0485
+    roll: 0.126755
+    pitch: 0.383611
+    yaw: 359.928
+imu:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.
+
+wheel:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.
+  
+gnss:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.

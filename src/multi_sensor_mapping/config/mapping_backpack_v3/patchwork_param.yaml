@@ -1,0 +1,17 @@
+sensor_height: 1.8
+num_iter: 3
+num_lpr: 20
+num_min_pts: 10
+th_seeds: 0.3
+th_dist: 0.125
+th_seeds_v: 0.25
+th_dist_v: 0.1
+max_r: 30
+min_r: 0.5
+uprightness_thr: 0.907
+enable_RNR: true
+enable_RVPF: true
+enable_TGR: false
+RNR_ver_angle_thr: -15.0
+RNR_intensity_thr: 100
+adaptive_seed_selection_margin: -1.2

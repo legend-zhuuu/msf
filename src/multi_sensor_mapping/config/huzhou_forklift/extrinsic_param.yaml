@@ -1,0 +1,42 @@
+# Huzhou-Forklift
+lidar:
+  - 
+    name: A
+    x: 1.1
+    y: 0.0
+    z: 0.0
+    roll: 0.0
+    pitch: 0.0
+    yaw: 4.0
+  - 
+    name: B
+    x: 0.
+    y: 0
+    z: 0.
+    roll: 0.
+    pitch: 0.
+    yaw: 0.
+
+imu:
+  x: 0.88608
+  y: -0.0408
+  z: 0
+  roll: 0.
+  pitch: 90.
+  yaw: -0
+
+wheel:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.
+  
+gnss:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.

@@ -1,0 +1,41 @@
+# Mapping Backpack V3, Rs-Helios - Hipnuc-IMU
+lidar:
+  - 
+    name: A
+    x: 0.00307942
+    y: -0.00580756
+    z: 0.0318185
+    roll: 0
+    pitch: 10.0
+    yaw: 180.0
+  - 
+    name: B
+    x: 0.00307942
+    y: -0.00580756
+    z: 0.0618185
+    roll: 0
+    pitch: 10.0
+    yaw: 180.0
+imu:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.
+
+wheel:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.
+  
+gnss:
+  x: 0.
+  y: 0.
+  z: 0.
+  roll: 0.
+  pitch: 0.
+  yaw: 0.

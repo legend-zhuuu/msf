@@ -1,0 +1,15 @@
+model_type: lstm
+observations:          # REQUIRED: str array
+  - roll_pitch
+  - joint_pos
+  - joint_vel
+  - ang_vel
+estimations:           # REQUIRED: str array
+  - lin_vel
+input_dim: 29          # REQUIRED: int
+output_dim: 3          # REQUIRED: int
+run:                   # OPTIONAL
+  task: DEMO_TASK
+  name: DEMO_NAME
+  time: DEMO_TIME
+  iter: DEMO_ITER

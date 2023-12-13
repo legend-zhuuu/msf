@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="project" default="multi_sensor_mapping"/>
+
+    <node pkg="$(arg project)" type="pose_graph_node" name="pose_graph_node" output="screen" respawn="false" >
+    <!-- <node pkg="$(arg project)" type="pose_graph_node" name="pose_graph_node" output="screen" respawn="false" launch-prefix="gdb -ex run &#45;&#45;args"> -->
+        <param name="session_path" value="/home/hkw/DATA/Dataset/MappingBackpackV2/XinDe-2023.8.24-Refined-20230825-2"/>
+        <param name="config_name" value="mapping_backpack_v2"/>
+    </node>
+
+    <!--- Rviz -->
+    <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/lidar_mapper.rviz" />
+    <node pkg="rviz" type="rviz" name="$(arg project)_rviz2" args="-d $(find multi_sensor_mapping)/rviz/loop_closure.rviz" />
+
+</launch>

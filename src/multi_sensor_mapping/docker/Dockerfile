@@ -1,0 +1,106 @@
+ARG BASE_IMAGE=ubuntu:18.04
+ARG ROS_IMAGE=amd64/ros:melodic-perception-bionic
+
+FROM ${BASE_IMAGE} 
+FROM ${ROS_IMAGE}
+
+# Temp workaround for ROS GPG Key Expiration Incident
+COPY conf/amd64/ros.asc /etc/apt/trusted.gpg.d/
+
+# Add Tsinghua mirror for ubuntu and ros
+COPY conf/amd64/sources.list /etc/apt/sources.list
+COPY conf/amd64/ros-latest.list /etc/apt/sources.list.d/ros-latest.list
+
+# Install dependencies for building
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -q -y --no-install-recommends \
+    build-essential cmake g++ apt-utils\
+    libgoogle-glog-dev libgflags-dev libatlas-base-dev libeigen3-dev libsuitesparse-dev \
+    libboost-dev libpcap-dev libpcl-dev wireshark-qt \
+    ros-melodic-rslidar-msgs ros-melodic-cv-bridge ros-melodic-pcl-conversions ros-melodic-pcl-ros \
+    ros-melodic-octomap ros-melodic-octomap-msgs ros-melodic-jsk-recognition-msgs ros-melodic-rviz && \
+    echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc 
+
+# Install dependencies for development
+RUN apt-get update && \
+    apt-get install -q -y --no-install-recommends \
+    gawk rsync git curl wget tmux vim unzip htop iotop iftop \
+    net-tools iputils-ping python-serial gdb ssh ninja-build && \
+    apt-get clean && \
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+
+ARG NUM_THREADS=16
+
+#Install ceres from source 
+COPY deps/install_ceres.sh /tmp/
+COPY source/ceres-solver /tmp/ceres-solver
+RUN /tmp/install_ceres.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_ceres.sh
+
+#Install rs_driver from source 
+COPY deps/install_rs_driver.sh /tmp/
+COPY source/rs_driver /tmp/rs_driver
+RUN /tmp/install_rs_driver.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_rs_driver.sh 
+
+#Install gtsam from source 
+COPY deps/install_gtsam.sh /tmp/
+COPY source/gtsam /tmp/gtsam
+RUN /tmp/install_gtsam.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_gtsam.sh 
+
+#Install sophus from source 
+COPY deps/install_sophus.sh /tmp/
+COPY source/Sophus /tmp/Sophus
+RUN /tmp/install_sophus.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_sophus.sh 
+
+#Install geographiclib from source 
+COPY deps/install_geographiclib.sh /tmp/
+COPY source/geographiclib /tmp/geographiclib
+RUN /tmp/install_geographiclib.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_geographiclib.sh 
+
+#Install zipper from source 
+COPY deps/install_zipper.sh /tmp/
+COPY source/zipper /tmp/zipper
+RUN /tmp/install_zipper.sh "${NUM_THREADS}" && \
+    rm -rf /tmp/install_zipper.sh 
+
+#Install gtest
+COPY deps/install_gtest.sh /tmp/
+RUN /tmp/install_gtest.sh && \
+    rm -rf /tmp/install_gtest.sh
+
+#update cmake
+COPY deps/update_cmake.sh /tmp/
+COPY source/cmake-3.21.7-linux-x86_64 /tmp/cmake-3.21.7-linux-x86_64
+RUN /tmp/update_cmake.sh && \
+    rm -rf /tmp/update_cmake.sh
+
+# Solve the compilation issuse about LZ4_streamDecode_t
+RUN mv /usr/include/flann/ext/lz4.h /usr/include/flann/ext/lz4.h.bak && \
+    mv /usr/include/flann/ext/lz4hc.h /usr/include/flann/ext/lz4.h.bak && \
+    echo "/usr/local/lib" >> /etc/ld.so.conf && \
+    /sbin/ldconfig && \
+    ln -s /usr/include/lz4.h /usr/include/flann/ext/lz4.h && \
+    ln -s /usr/include/lz4hc.h /usr/include/flann/ext/lz4hc.h && \
+    ln -s /usr/local/lib/libmetis.so /usr/lib/libmetis.so
+
+# Clean
+RUN apt-get clean && \
+    rm -rf \
+    /tmp/* \
+    /var/lib/apt/lists/* \
+    /var/tmp/*
+
+# Setup SSH
+RUN sed -i "s/Port .*/Port 2223/" /etc/ssh/sshd_config
+EXPOSE 2223
+
+# Switch to bash shell
+RUN chsh -s /bin/bash root
+
+# Setup entrypoint
+WORKDIR /
+ENTRYPOINT service ssh restart && bash

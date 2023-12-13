@@ -1,0 +1,44 @@
+<launch>
+  <!-- Launch the grid map simple demo node -->
+  <!-- launch-prefix="gdb -ex run -args" -->
+  <arg name="rviz" default="false"/>
+
+  <node pkg="detection" type="grid_map_test" name="grid_map_test" output="screen">
+    <param name="point_sub_topic" value="/global_map2" />
+    <param name="position_sub_topic" value="/robot_base_pose_inter" />
+    <param name="grid_pub_topic" value="/grid_map" />
+    <param name="elevation_pub_topic" value="/elevation_map" />
+    <param name="elevation_pointCloud_pub_topic" value="/elevation_pointCloud_map" />
+    <param name="grid_map_size_x" value="2.2" />
+    <param name="grid_map_size_y" value="2.2" />
+    <param name="grid_map_position_x" value="0.0" />
+    <param name="grid_map_position_y" value="0.0" />
+    <param name="grid_map_resolution" value="0.02" />
+    <param name="grid_frame_id" value="map" />
+    <param name="point_update" value="true" />
+    <param name="position_update" value="true" />
+    <param name="function_flag" value="true" />
+  </node>
+
+  <node pkg="grid_map_demos" type="filters_demo" name="grid_map_filter_demo" output="screen">
+    <!-- Input topic -->
+    <param name="input_topic" value="/grid_map" />
+    <!-- Output topic -->
+    <param name="output_topic" value="filtered_map" />
+    <!-- Load grid map filter chain configuration -->
+    <rosparam command="load" file="$(find detection)/config/filters_demo_filter_chain.yaml" />
+  </node>
+  <!--   <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">-->
+  <!--     <rosparam command="load" file="$(find grid_map_demos)/config/simple_demo.yaml" />-->
+  <!--   </node>-->
+  <!-- Launch the grid map visualizer -->
+  <!--   <include file="$(find elevation_mapping_demos)/launch/visualization.launch" />-->
+  <!--   <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">-->
+  <!--     <rosparam command="load" file="$(find grid_map_demos)/config/simple_demo.yaml" />-->
+  <!--   </node>-->
+
+  <!-- Launch RViz with the demo configuration -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find detection)/rviz/grid_map_demo.rviz" if="$(arg rviz)"/>
+  <!--   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find grid_map_demos)/rviz/grid_map_demo.rviz" />-->
+  <!--   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find elevation_mapping_demos)/rviz/elevation_map_visualization.rviz" /> -->
+</launch>

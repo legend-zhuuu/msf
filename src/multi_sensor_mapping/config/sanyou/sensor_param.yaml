@@ -1,0 +1,32 @@
+lidar:
+  -
+    name: A                   # LiDAR Name  - A, B, C, D,
+    topic: /front/upper/rslidar_points     # LiDAR Topic
+    frame: rslidar            # LiDAR Frame ID
+    format: RSLIDAR_LEGACY           # LiDAR Format  - RSLIDAR, VELODYNE, LIVOX, OUSTER, SURESTAR, RS_PACKET_RSHELIOS_16P, RS_PACKET_RSHELIOS
+    purpose: LIM
+    use: true                
+    major: true
+  -
+    name: B
+    topic: /rslidar_topic
+    frame: rslidar
+    format: RSLIDAR
+    purpose: LIO
+    use: false
+    major: false
+    
+imu:
+  topic: /imu/data
+  frame: imu
+  use: true
+
+wheel:
+  topic: /wheel_odometry
+  frame: wheel
+  use: true
+
+gnss: 
+  topic: /gps
+  frame: gps
+  use: false

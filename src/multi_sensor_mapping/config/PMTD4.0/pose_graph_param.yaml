@@ -1,0 +1,7 @@
+loop_closure_searching_distance: 10.0
+loop_closure_distance_interval: 15.0
+loop_closure_score_threshold: 0.4
+mono_layer_motion: true
+map_resolution: 0.1
+output_detail_info: false
+output_grid_map: true

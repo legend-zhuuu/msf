@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" default="true" />
+    <arg name="project" default="multi_sensor_mapping"/>
+
+    <!-- Lidar IMU Mapper -->
+    <node pkg="$(arg project)" type="lidar_imu_frontend_node" name="lidar_imu_frontend_node" output="screen" respawn="false">
+    <!-- <node pkg="$(arg project)" type="lidar_imu_frontend_node" name="lidar_imu_frontend_node" output="screen" respawn="false" launch-prefix="gdb -ex run &#45;&#45;args"> -->
+        <param name="bag_path" value="/home/hkw/dataset/Jingbo/jingbo-mapping.bag"/>
+        <param name="config_name" value="pix"/>
+    </node>
+
+
+    <!--- Rviz -->
+    <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/lidar_mapper.rviz" />
+    </group>
+</launch>

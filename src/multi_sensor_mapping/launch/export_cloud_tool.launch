@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" default="false" />
+    <arg name="project" default="multi_sensor_mapping"/>
+
+    <!-- Lidar IMU Mapper -->
+    <node pkg="$(arg project)" type="export_cloud_tool" name="export_cloud_tool" output="screen" respawn="false">
+        <param name="session_path" value="/home/hkw/DATA/Dataset/MappingBackpackV2/它人机器人/HaizhiCenterParkinglot(20230308)-Refined-20230323"/>
+        <param name="export_path" value="/home/hkw/DATA/Dataset/MappingBackpackV2/它人机器人/HaizhiCenterParklot"/>
+        <param name="cloud_resolution" value="0.01"/>
+    </node>
+
+
+    <!--- Rviz -->
+    <!-- <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/lidar_mapper.rviz" />
+    </group> -->
+</launch>

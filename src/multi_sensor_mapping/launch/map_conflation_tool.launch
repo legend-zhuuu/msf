@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" default="true" />
+    <arg name="project" default="multi_sensor_mapping"/>
+
+    <!-- Lidar IMU Mapper -->
+    <node pkg="$(arg project)" type="map_conflation_tool" name="map_conflation_tool" output="screen" respawn="false">
+        <param name="target_cloud_path" value="/home/hkw/DATA/Dataset/Hangcha/map_conflation/global_cloud_merge(20221220).pcd"/>
+        <param name="source_cloud_path" value="/home/hkw/DATA/Dataset/Hangcha/map_conflation/A_plus_cloud_filter.pcd"/>
+    </node>
+
+
+    <!--- Rviz -->
+    <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/map_conflation.rviz" />
+    </group>
+</launch>

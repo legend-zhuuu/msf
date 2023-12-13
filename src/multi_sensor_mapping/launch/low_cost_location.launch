@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" default="true" />
+    <arg name="project" default="multi_sensor_mapping"/>
+    <arg name="map_name" default="1.pcd"/>
+    <arg name="bag_name" default="10_20_2.bag"/>
+    <arg name="play_bag" default="false"/>
+    <param name="use_sim_time" value="true"/>
+
+    <!-- publish pcd for compute elevation map-->
+    <param name="pcd_file" value="$(find detection)/maps/$(arg map_name)" />
+    <node name="publish_pcd" pkg="detection" type="publish_pcd.py" output="screen" respawn="true">
+    </node>
+
+    <!-- publish aliengo description -->
+    <include file="$(find aliengo_description)/launch/aliengo_rviz.launch" />
+
+    <!-- publish tf between aliengo and map-->
+<!--     <node name="tf_robot2map" pkg="aliengo_description" type="tf_robot_pose" output="screen" respawn="true"> -->
+<!--     </node> -->
+    <node pkg="tf" type="static_transform_publisher" name="lidarPose2robotBase" args="-0.33 0.0 -0.14 0 0 0 lidar base 10" />
+
+    <!-- Lidar IMU Mapper -->
+    <node pkg="$(arg project)" type="low_cost_location_node" name="low_cost_location_node" output="screen" respawn="false">
+    <!-- <node pkg="$(arg project)" type="low_cost_location_node" name="low_cost_location_node" output="screen" respawn="false" launch-prefix="gdb -ex run &#45;&#45;args"> -->
+        <param name="config_name" value="quadruped_robot"/>
+        <param name="map_path" value="$(find detection)/maps/$(arg map_name)"/>
+        <param name="enable_record_pose" value="false"/>
+        <param name="record_path" value="/home/zdy/bags"/>
+    </node>
+
+    <!-- interpolate lidar pose to 50hz -->
+    <node name="lidar_pose_inter" pkg="detection" type="lidar_pose_inter" output="screen" respawn="true">
+    </node>
+
+    <!-- get elevation map from interpolated robot_base_pose_inter -->
+    <include file="$(find detection)/launch/grid_map_test.launch" />
+
+    <!-- rosbag play -->-
+    <node pkg="rosbag" type="play" name="rosbag" output="screen"
+        args="/home/zdy/msf_ws/bags/$(arg bag_name) --clock
+        /aliengo/joint_states:=/joint_states /lidar_pose:=/lp" if="$(arg play_bag)">
+    </node>
+
+    <!--- Rviz -->
+    <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/robot_lidar_mapper.rviz" />
+    </group>
+</launch>

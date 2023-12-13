@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz" default="true" />
+    <arg name="project" default="multi_sensor_mapping"/>
+
+    <!-- Lidar IMU Mapper -->
+    <node pkg="$(arg project)" type="lidar_imu_mapping_node" name="lidar_imu_mapping_node" output="screen" respawn="false">
+    <!-- <node pkg="$(arg project)" type="lidar_imu_mapping_node" name="lidar_imu_mapping_node" output="screen" respawn="false" launch-prefix="gdb -ex run &#45;&#45;args"> -->
+        <param name="bag_path" value="/home/hkw/dataset/Sizu/MID360_imu_2023-10-13_aliengoStairs/MID360_imu_2023-10-13-21-29-29_aliengoStairs2.bag"/>
+        <param name="config_name" value="quadruped_robot"/>
+        <param name="start_time" value="0"/>
+    </node>
+
+
+    <!--- Rviz -->
+    <group if="$(arg rviz)">
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find multi_sensor_mapping)/rviz/lidar_mapper.rviz" />
+      <node pkg="rviz" type="rviz" name="$(arg project)_rviz2" args="-d $(find multi_sensor_mapping)/rviz/loop_closure.rviz" />
+    </group>
+</launch>

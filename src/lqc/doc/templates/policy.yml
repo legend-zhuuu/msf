@@ -1,0 +1,43 @@
+version: v2
+model_type: lstm
+observation_dim: 36    # REQUIRED: int
+action_dim: 12         # REQUIRED: int
+denormalized: true     # OPTIONAL: default true
+action_mean:           # REQUIRED: float array sized 12
+  - 0.0
+  - 0.6434999704360962
+  - -1.2869999408721924
+  - 0.0
+  - 0.6434999704360962
+  - -1.2869999408721924
+  - 0.0
+  - 0.6434999704360962
+  - -1.2869999408721924
+  - 0.0
+  - 0.6434999704360962
+  - -1.2869999408721924
+action_std: 0.8        # REQUIRED if `denormalized == false`: float / float array sized 12
+warmup_steps: 0        # OPTIONAL: default 0
+freq: 100              # REQUIRED: int
+Kp: 30                 # REQUIRED: float / float array sized 12
+Kd: 0.5                # REQUIRED: float / float array sized 12
+observations:          # REQUIRED: str array
+  - cmd_vel
+  - roll_pitch
+  - joint_pos
+  - joint_vel
+  - ang_vel
+  - lin_vel
+  - cmd_standing
+observation_options:   # OPTIONAL
+  scan_dots:           # OPTIONAL: [ int, int ]
+    - 11
+    - 11
+  scan_grid:           # OPTIONAL: [ float, float ]
+    - 0.1
+    - 0.1
+run:                   # OPTIONAL
+  task: DEMO_TASK
+  name: DEMO_NAME
+  time: DEMO_TIME
+  iter: DEMO_ITER

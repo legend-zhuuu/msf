@@ -1,0 +1,9 @@
+
+set(ndt_omp_INCLUDE_DIRS "@NDT_OMP_INCLUDE_DIRS@")
+set(NDT_OMP_INCLUDE_DIRS "@NDT_OMP_INCLUDE_DIRS@")
+
+set(ndt_omp_LIBRARIES "@NDT_OMP_LIBS@")
+set(NDT_OMP_LIBRARIES "@NDT_OMP_LIBS@")
+
+set(ndt_omp_FOUND true)
+set(NDT_OMP_FOUND true)

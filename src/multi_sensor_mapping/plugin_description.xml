@@ -1,0 +1,33 @@
+<library path="lib/libadjust_cloud_panel">
+  <class name="multi_sensor_mapping/AdjustCloudPanel"
+         type="multi_sensor_mapping::AdjustCloudPanel"
+         base_class_type="rviz::Panel">
+    <description>
+      Adjust Cloud panel.
+    </description>
+  </class>
+</library>
+
+
+<library path="lib/libadjust_cloud_panel">
+  <class name="multi_sensor_mapping/RegionSelectionTool"
+         type="multi_sensor_mapping::RegionSelectionTool"
+         base_class_type="rviz::Tool">
+    <description>
+      Fork of the rviz::SelectionTool:
+      Drag with the left button to select objects in the 3D scene.
+      Hold the Alt key to change viewpoint as in the Move tool.
+      Additionally publishes selected points on /selected_points topic.
+    </description>
+  </class>
+</library>
+
+<library path="lib/libadjust_cloud_panel">
+  <class name="multi_sensor_mapping/BackendPanel"
+         type="multi_sensor_mapping::BackendPanel"
+         base_class_type="rviz::Panel">
+    <description>
+      Backend Panel
+    </description>
+  </class>
+</library>

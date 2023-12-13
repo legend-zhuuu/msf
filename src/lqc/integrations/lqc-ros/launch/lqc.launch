@@ -1,0 +1,18 @@
+<launch>
+  <arg name="policy_dir"/>
+  <arg name="ns" default="quadruped"/>
+  <arg name="gridmap_topic" default="/elevation_mapping/elevation_map_raw"/>
+  <arg name="gridmap_layer" default="elevation_inpainted"/>
+  <arg name="pose_topic" default="/livox_pose"/>
+  <arg name="cmd_vel_topic" default="cmd_vel"/>
+
+  <group ns="$(arg ns)">
+    <param name="LQC_POLICY_DIR" value="$(arg policy_dir)"/>
+    <param name="LQC_GRIDMAP_TOPIC" value="$(arg gridmap_topic)"/>
+    <param name="LQC_GRIDMAP_LAYER" value="$(arg gridmap_layer)"/>
+    <param name="LQC_ODOM_TOPIC" value="$(arg pose_topic)"/>
+    <param name="LQC_CMD_VEL_TOPIC" value="$(arg cmd_vel_topic)"/>
+
+    <node name="lqc_node" pkg="lqc-ros" type="lqc_node" output="screen"/>
+  </group>
+</launch>

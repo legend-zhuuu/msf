@@ -1,0 +1,17 @@
+<launch>
+  <arg name="policy_dir"/>
+  <arg name="ns" default="b1"/>
+  <arg name="gridmap_topic" default="/elevation_mapping/elevation_map_raw"/>
+  <arg name="gridmap_layer" default="elevation_inpainted"/>
+  <arg name="pose_topic" default="/livox_pose"/>
+  <arg name="cmd_vel_topic" default="cmd_vel"/>
+
+  <include file="$(find lqc-ros)/launch/lqc.launch">
+    <arg name="policy_dir" value="$(arg policy_dir)"/>
+    <arg name="ns" value="$(arg ns)"/>
+    <arg name="gridmap_topic" value="$(arg gridmap_topic)"/>
+    <arg name="gridmap_layer" value="$(arg gridmap_layer)"/>
+    <arg name="pose_topic" value="$(arg pose_topic)"/>
+    <arg name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+  </include>
+</launch>
