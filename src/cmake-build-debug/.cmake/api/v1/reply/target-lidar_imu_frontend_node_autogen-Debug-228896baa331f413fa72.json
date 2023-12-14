@@ -1,0 +1,65 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"multi_sensor_mapping/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "msm_core::@c36605eb5b8c6fafcb2f"
+		}
+	],
+	"id" : "lidar_imu_frontend_node_autogen::@c36605eb5b8c6fafcb2f",
+	"isGeneratorProvided" : true,
+	"name" : "lidar_imu_frontend_node_autogen",
+	"paths" : 
+	{
+		"build" : "multi_sensor_mapping",
+		"source" : "multi_sensor_mapping"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/multi_sensor_mapping/CMakeFiles/lidar_imu_frontend_node_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/multi_sensor_mapping/CMakeFiles/lidar_imu_frontend_node_autogen.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

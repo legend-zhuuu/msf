@@ -1,0 +1,10 @@
+prefix=/home/zdy/msf_ws/src/cmake-build-debug/../install
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: gamepad
+Description: gamepad input library
+Version: 1.0.0
+Libs:  -L${libdir} -lgamepad
+Cflags: -I${includedir}

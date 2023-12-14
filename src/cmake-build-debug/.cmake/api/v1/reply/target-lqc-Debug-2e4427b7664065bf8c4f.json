@@ -1,0 +1,463 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "devel/lib/liblqc.so"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_install",
+			"install",
+			"target_link_libraries",
+			"add_compile_options",
+			"target_compile_definitions",
+			"add_definitions",
+			"configure_shared_library_build_settings",
+			"include",
+			"find_package",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"lqc/CMakeLists.txt",
+			"/opt/ros/noetic/share/catkin/cmake/custom_install.cmake",
+			"lqc/thirdparty/libgamepad/CMakeLists.txt",
+			"lqc/thirdparty/unitree_legged_sdk/aliengo/CMakeLists.txt",
+			"/opt/ros/noetic/share/catkin/cmake/tools/libraries.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/all.cmake",
+			"/opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 97,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 13,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 82,
+				"parent" : 0
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 125,
+				"parent" : 5
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 22,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"file" : 7
+			},
+			{
+				"command" : 9,
+				"file" : 7,
+				"line" : 58,
+				"parent" : 12
+			},
+			{
+				"file" : 6,
+				"parent" : 13
+			},
+			{
+				"command" : 8,
+				"file" : 6,
+				"line" : 20,
+				"parent" : 14
+			},
+			{
+				"file" : 5,
+				"parent" : 15
+			},
+			{
+				"command" : 7,
+				"file" : 5,
+				"line" : 174,
+				"parent" : 16
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 18,
+				"parent" : 17
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 78,
+				"parent" : 0
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O0 -g3 -std=gnu++14 -fPIC -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "-pthread"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 11,
+					"define" : "LQC_ROBOT=LQC_ALIENGO"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "ROS_BUILD_SHARED_LIBS=1"
+				},
+				{
+					"define" : "lqc_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 19,
+					"path" : "/home/zdy/msf_ws/src/lqc/include"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/usr/include/eigen3"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zdy/msf_ws/src/lqc/thirdparty/libgamepad/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zdy/msf_ws/src/lqc/thirdparty/libgamepad/./include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zdy/msf_ws/src/lqc/thirdparty/libgamepad/./src"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zdy/msf_ws/src/lqc/thirdparty/unitree_legged_sdk/aliengo/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zdy/msf_ws/src/lqc/thirdparty/onnxruntime-x64/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "gamepad::@2703f050e842599b7a75"
+		}
+	],
+	"id" : "lqc::@3b1d02abba4d85568406",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 3,
+				"path" : "lib"
+			},
+			{
+				"backtrace" : 3,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/home/zdy/msf_ws/src/cmake-build-debug/../install"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/zdy/msf_ws/src/lqc/thirdparty/unitree_legged_sdk/aliengo/lib/amd64:/home/zdy/msf_ws/src/lqc/thirdparty/onnxruntime-x64/lib:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-latomic",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.6.2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "/home/zdy/msf_ws/src/lqc/thirdparty/unitree_legged_sdk/aliengo/lib/amd64/libunitree_legged_sdk.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "-llcm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "/home/zdy/msf_ws/src/lqc/thirdparty/onnxruntime-x64/lib/libonnxruntime.so",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "lqc",
+	"nameOnDisk" : "liblqc.so",
+	"paths" : 
+	{
+		"build" : "lqc/integrations/lqc-ros/lqc",
+		"source" : "lqc"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			]
+		},
+		{
+			"name" : "Object Libraries",
+			"sourceIndexes" : 
+			[
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/interface/agent.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/interface/comm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/interface/gamepad.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/policy/legacy_policy.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/policy/policy_v2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/utils/ev.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/utils/math.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/utils/imu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/utils/logging.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 20,
+			"compileGroupIndex" : 0,
+			"path" : "lqc/src/runtime/ort.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/hook.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/log.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/binding.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/binding-default.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/json11.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/device.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/linux/hook-linux.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/linux/device-linux.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/lqc/integrations/lqc-ros/lqc/thirdparty/libgamepad/CMakeFiles/gamepad.dir/src/linux/binding-linux.cpp.o",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

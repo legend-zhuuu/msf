@@ -1,0 +1,51 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_install",
+			"install"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/custom_install.cmake",
+			"lqc/thirdparty/unitree_legged_sdk/aliengo/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 1
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lqc/thirdparty/unitree_legged_sdk/aliengo/lib/amd64/libunitree_legged_sdk.so"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lqc/integrations/lqc-ros/lqc/thirdparty/unitree_legged_sdk/aliengo",
+		"source" : "lqc/thirdparty/unitree_legged_sdk/aliengo"
+	}
+}

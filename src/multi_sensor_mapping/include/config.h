@@ -18,5 +18,5 @@
 
 
 // Directory
-#define MSM_SOURCE_DIR "/home/zdy/msf_ws2/src/multi_sensor_mapping"
+#define MSM_SOURCE_DIR "/home/zdy/msf_ws/src/multi_sensor_mapping"
 #define MSM_TEST_DATA_DIR "/data/test"

@@ -1,0 +1,87 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_install",
+			"install"
+		],
+		"files" : 
+		[
+			"/opt/ros/noetic/share/catkin/cmake/custom_install.cmake",
+			"lqc/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 97,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 3
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lqc/thirdparty/onnxruntime-x64/lib/libonnxruntime.so.1.16.1"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"devel/lib/liblqc.so"
+			],
+			"targetId" : "lqc::@3b1d02abba4d85568406",
+			"targetIndex" : 96,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"lqc/integrations/lqc-ros/lqc/lqc"
+			],
+			"targetId" : "lqc-policy::@3b1d02abba4d85568406",
+			"targetIndex" : 97,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lqc/integrations/lqc-ros/lqc",
+		"source" : "lqc"
+	}
+}

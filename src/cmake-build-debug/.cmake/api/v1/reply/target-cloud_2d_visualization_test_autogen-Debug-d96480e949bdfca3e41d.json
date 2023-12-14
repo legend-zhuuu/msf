@@ -1,0 +1,65 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"multi_sensor_mapping/test/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "msm_core::@c36605eb5b8c6fafcb2f"
+		}
+	],
+	"id" : "cloud_2d_visualization_test_autogen::@ed9224f94f84d742ea93",
+	"isGeneratorProvided" : true,
+	"name" : "cloud_2d_visualization_test_autogen",
+	"paths" : 
+	{
+		"build" : "multi_sensor_mapping/test",
+		"source" : "multi_sensor_mapping/test"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/multi_sensor_mapping/test/CMakeFiles/cloud_2d_visualization_test_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/multi_sensor_mapping/test/CMakeFiles/cloud_2d_visualization_test_autogen.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

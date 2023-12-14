@@ -1,0 +1,2 @@
+set(multi_sensor_mapping_MESSAGE_FILES "/home/zdy/msf_ws/src/multi_sensor_mapping/msg/backend_panel_cmd.msg;/home/zdy/msf_ws/src/multi_sensor_mapping/msg/adjust_cloud_panel_cmd.msg")
+set(multi_sensor_mapping_SERVICE_FILES "")

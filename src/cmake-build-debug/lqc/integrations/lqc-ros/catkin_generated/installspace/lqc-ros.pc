@@ -1,0 +1,8 @@
+prefix=/home/zdy/msf_ws/src/cmake-build-debug/../install
+
+Name: lqc-ros
+Description: Description of lqc-ros
+Version: 0.0.0
+Cflags: -I/home/zdy/msf_ws/src/lqc/include -I/usr/include/eigen3
+Libs: -L${prefix}/lib -llqc
+Requires: roscpp std_msgs sensor_msgs grid_map_ros

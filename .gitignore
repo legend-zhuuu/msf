@@ -1,0 +1,9 @@
+# ignore build devel
+build/
+devel/
+
+# ignore bags
+bags/
+maps/
+models/
+

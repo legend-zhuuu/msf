@@ -36,7 +36,7 @@ namespace octomap {
     }
 
     void OCtreeProcessor::parseParameter() {
-        nh_.param<std::string>("robot_pos_topic", robot_pos_topic_, "/odom/robot_position");
+        nh_.param<std::string>("robot_pos_topic", robot_pos_topic_, "/robot_base_pose_inter");
         nh_.param<std::string>("grid_pub_topic", grid_pub_topic_, "/gridmap_from_octomap");
         nh_.param<std::string>("octomap_filename", octomap_filename_,
                                "/home/zdy/maps/azure_livox_hand_2023-11-07-20-10-48.bt");
@@ -46,6 +46,31 @@ namespace octomap {
     void OCtreeProcessor::loadOCtreeFile() {
         octomap_.clear();
         octomap_.readBinary(octomap_filename_);
+
+        // Iterate through leaf nodes and project occupied cells to elevation map.
+        // On the first pass, expand all occupied cells that are not at maximum depth.
+        unsigned int max_depth = octomap_.getTreeDepth();
+        // Adapted from octomap octree2pointcloud.cpp.
+        std::vector<octomap::OcTreeNode *> collapsed_occ_nodes;
+        do {
+            collapsed_occ_nodes.clear();
+            for (octomap::OcTree::iterator it = octomap_.begin(); it != octomap_.end(); ++it) {
+                if (octomap_.isNodeOccupied(*it) && it.getDepth() < max_depth) {
+                    collapsed_occ_nodes.push_back(&(*it));
+                }
+            }
+            for (std::vector<octomap::OcTreeNode *>::iterator it = collapsed_occ_nodes.begin();
+                 it != collapsed_occ_nodes.end(); ++it) {
+#if OCTOMAP_VERSION_BEFORE_ROS_KINETIC
+                (*it)->expandNode();
+#else
+                octomap_.expandNode(*it);
+#endif
+            }
+            // std::cout << "Expanded " << collapsed_occ_nodes.size() << " nodes" << std::endl;
+        } while (collapsed_occ_nodes.size() > 0);
+
+
         std::cout << "full map node num:" << octomap_.calcNumNodes() << std::endl;
     }
 
@@ -53,15 +78,17 @@ namespace octomap {
 //        Eigen::Vector3f robot_position{robot_pos_x_, 0, 0};
 //        sliceSubOctomap(robot_position);  // get suboctomap point by point.
         msg_mtx_.lock();
-//        robot_position_.x() = 5. + 2 * std::cos(counter_ * 0.1);
-//        robot_position_.y() = 0. + 2 * std::sin(counter_ * 0.1);
+//        robot_position_.x() = 3.5324312448501587 + std::sin(counter_ * 0.1);
+//        robot_position_.y() = 0. + 0.01 * std::sin(counter_ * 0.1);
 //        robot_position_.z() = 0.4;
-        grid_map::Position3 min_bound{robot_position_.x() - subOctomap_range_x_ / 2, robot_position_.y() - subOctomap_range_y_ / 2,
+        grid_map::Position3 min_bound{robot_position_.x() - subOctomap_range_x_ / 2,
+                                      robot_position_.y() - subOctomap_range_y_ / 2,
                                       robot_position_.z() - subOctomap_range_z_ / 2};
-        grid_map::Position3 max_bound{robot_position_.x() + subOctomap_range_x_ / 2, robot_position_.y() + subOctomap_range_y_ / 2,
+        grid_map::Position3 max_bound{robot_position_.x() + subOctomap_range_x_ / 2,
+                                      robot_position_.y() + subOctomap_range_y_ / 2,
                                       robot_position_.z() + subOctomap_range_z_ / 2};
         msg_mtx_.unlock();
-//        std::cout << min_bound.transpose() << "\n" << max_bound.transpose() << std::endl;
+        std::cout << min_bound.transpose() << "\n" << max_bound.transpose() << std::endl;
         bool res = octomap::fromOctomap(octomap_, "elevation", map_, &min_bound, &max_bound);
         if (!res) {
             ROS_ERROR("Failed to call convert Octomap.");
@@ -73,7 +100,7 @@ namespace octomap {
         grid_map::GridMapRosConverter::toMessage(map_, gridMapMessage);
         gridMapPublisher_.publish(gridMapMessage);
         counter_++;
-        std::cout<<"update"<<std::endl;
+        std::cout << "update" << std::endl;
     }
 
     void OCtreeProcessor::sliceSubOctomap(const Eigen::Vector3f &robot_position) {
@@ -130,31 +157,6 @@ namespace octomap {
                      grid_map::GridMap &gridMap,
                      const grid_map::Position3 *minPoint,
                      const grid_map::Position3 *maxPoint) {
-
-        // Copy octomap in order to expand any pruned occupied cells and maintain constness of input.
-//        octomap::OcTree &octomapCopy(octomap);
-        // Iterate through leaf nodes and project occupied cells to elevation map.
-        // On the first pass, expand all occupied cells that are not at maximum depth.
-        unsigned int max_depth = octomap.getTreeDepth();
-        // Adapted from octomap octree2pointcloud.cpp.
-        std::vector<octomap::OcTreeNode *> collapsed_occ_nodes;
-        do {
-            collapsed_occ_nodes.clear();
-            for (octomap::OcTree::iterator it = octomap.begin(); it != octomap.end(); ++it) {
-                if (octomap.isNodeOccupied(*it) && it.getDepth() < max_depth) {
-                    collapsed_occ_nodes.push_back(&(*it));
-                }
-            }
-            for (std::vector<octomap::OcTreeNode *>::iterator it = collapsed_occ_nodes.begin();
-                 it != collapsed_occ_nodes.end(); ++it) {
-#if OCTOMAP_VERSION_BEFORE_ROS_KINETIC
-                (*it)->expandNode();
-#else
-                octomap.expandNode(*it);
-#endif
-            }
-            // std::cout << "Expanded " << collapsed_occ_nodes.size() << " nodes" << std::endl;
-        } while (collapsed_occ_nodes.size() > 0);
 
         // Set up grid map geometry.
         // TODO Figure out whether to center map.

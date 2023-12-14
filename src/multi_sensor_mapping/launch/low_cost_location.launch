@@ -9,7 +9,7 @@
     <param name="use_sim_time" value="true"/>
 
     <!-- publish pcd for compute elevation map-->
-    <param name="pcd_file" value="$(find detection)/maps/$(arg map_name)" />
+    <param name="pcd_file" value="/home/zdy/msf_ws/maps/$(arg map_name)" />
     <node name="publish_pcd" pkg="detection" type="publish_pcd.py" output="screen" respawn="true">
     </node>
 
@@ -25,7 +25,7 @@
     <node pkg="$(arg project)" type="low_cost_location_node" name="low_cost_location_node" output="screen" respawn="false">
     <!-- <node pkg="$(arg project)" type="low_cost_location_node" name="low_cost_location_node" output="screen" respawn="false" launch-prefix="gdb -ex run &#45;&#45;args"> -->
         <param name="config_name" value="quadruped_robot"/>
-        <param name="map_path" value="$(find detection)/maps/$(arg map_name)"/>
+        <param name="map_path" value="/home/zdy/msf_ws/maps/$(arg map_name)"/>
         <param name="enable_record_pose" value="false"/>
         <param name="record_path" value="/home/zdy/bags"/>
     </node>
