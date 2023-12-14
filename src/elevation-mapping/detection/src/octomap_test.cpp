@@ -9,44 +9,50 @@ namespace octomap {
         parseParameter();
         loadOCtreeFile();
         gridMapPublisher_ = nh_.advertise<grid_map_msgs::GridMap>(grid_pub_topic_, 10, true);
-        robotOdomSubscriber_ = nh_.subscribe<geometry_msgs::PoseStamped>(robot_pos_topic_, 10,
+        elevationPointsPublisher_ = nh_.advertise<sensor_msgs::PointCloud2>(point_cloud_pub_topic_, 10, true);
+        robotOdomSubscriber_ = nh_.subscribe<geometry_msgs::PoseStamped>(robot_pos_sub_topic_, 10,
                                                                          &OCtreeProcessor::robotPositionCallback, this);
         robot_position_.setZero();
-//        map_.setBasicLayers({"elevation"});
-//        octomap_.setResolution(resolution_);
-//        sub_octomap_.setResolution(resolution_);
-        subOctomap_grid_x_.clear();
-        subOctomap_grid_y_.clear();
-        subOctomap_grid_z_.clear();
-        float x0 = -subOctomap_range_x_ / 2.f;
-        int x_num = (int) (subOctomap_range_x_ / resolution_);
+        robot_orientation_.setIdentity();
+        grid_x_.clear();
+        grid_y_.clear();
+        grid_z_.clear();
+        float x0 = -map_length_ / 2.f;
+        int x_num = (int) (map_length_ / gridmap_resolution_);
         for (int i = 0; i < x_num; i++) {
-            subOctomap_grid_x_.push_back(x0 + i * resolution_);
+            grid_x_.push_back(x0 + i * gridmap_resolution_);
         }
-        float y0 = -subOctomap_range_y_ / 2.f;
-        int y_num = (int) (subOctomap_range_y_ / resolution_);
+        float y0 = -map_width_ / 2.f;
+        int y_num = (int) (map_width_ / gridmap_resolution_);
         for (int i = 0; i < y_num; i++) {
-            subOctomap_grid_y_.push_back(y0 + i * resolution_);
+            grid_y_.push_back(y0 + i * gridmap_resolution_);
         }
-        float z0 = -subOctomap_range_z_ / 2.f;
-        int z_num = (int) (subOctomap_range_z_ / resolution_);
+        float z0 = subOctomap_range_z_ / 2.f;
+        int z_num = (int) (subOctomap_range_z_ / octomap_resolution_);
         for (int i = 0; i < z_num; i++) {
-            subOctomap_grid_z_.push_back(z0 + i * resolution_);
-        }
+            grid_z_.push_back(z0 - i * octomap_resolution_);
+        }  // grid_z from up to down
     }
 
     void OCtreeProcessor::parseParameter() {
-        nh_.param<std::string>("robot_pos_topic", robot_pos_topic_, "/robot_base_pose_inter");
+        nh_.param<std::string>("robot_pos_topic", robot_pos_sub_topic_, "/robot_base_pose_inter");
         nh_.param<std::string>("grid_pub_topic", grid_pub_topic_, "/gridmap_from_octomap");
+        nh_.param<std::string>("grid_pub_topic", point_cloud_pub_topic_, "/elevation_from_octomap");
+        nh_.param<std::string>("frame_id", frame_id_, "map");
         nh_.param<std::string>("octomap_filename", octomap_filename_,
-                               "/home/zdy/maps/azure_livox_hand_2023-11-07-20-10-48.bt");
-        nh_.param<std::string>("gridmap_frame_id", frame_id_, "map");
+                               "/home/zdy/msf_ws/maps/azure_livox_hand_2023-11-07.bt");
+        nh_.param<float>("octomap_resolution", octomap_resolution_, 0.03);
+        nh_.param<float>("gridmap_length", map_length_, 2);
+        nh_.param<float>("gridmap_width", map_width_, 2);
+        nh_.param<float>("gridmap_resolution", gridmap_resolution_, 0.05);
+
     }
 
     void OCtreeProcessor::loadOCtreeFile() {
         octomap_.clear();
+        octomap_ori_.clear();
         octomap_.readBinary(octomap_filename_);
-
+        octomap_ori_.readBinary(octomap_filename_);
         // Iterate through leaf nodes and project occupied cells to elevation map.
         // On the first pass, expand all occupied cells that are not at maximum depth.
         unsigned int max_depth = octomap_.getTreeDepth();
@@ -75,8 +81,57 @@ namespace octomap {
     }
 
     void OCtreeProcessor::update() {
-//        Eigen::Vector3f robot_position{robot_pos_x_, 0, 0};
-//        sliceSubOctomap(robot_position);  // get suboctomap point by point.
+//        sliceSubOctomap();  // get suboctomap point by point.
+        bool trans = convertOctomapToGridmap();
+        if (!trans) {
+            ROS_ERROR("Failed to convert Octomap to Gridmap.");
+        }
+        counter_++;
+        std::cout << "update" << std::endl;
+    }
+
+    void OCtreeProcessor::sliceSubOctomap() {
+        float x{robot_position_.x()};
+        float y{robot_position_.y()};
+        float z{robot_position_.z()};
+        float qw{robot_orientation_.w()};
+        float qx{robot_orientation_.x()};
+        float qy{robot_orientation_.y()};
+        float qz{robot_orientation_.z()};
+        pcl::PointCloud<pcl::PointXYZ>::Ptr pc_pub(new pcl::PointCloud<pcl::PointXYZ>);
+        points_.setZero(map_length_ * map_width_ * 3);
+        elevation_.setZero(map_length_ * map_width_);
+        int idx = 0;
+        float yaw = std::atan2(2 * (qw * qz + qx * qy), (1 - 2 * (qy * qy + qz * qz)));
+        float cy = std::cos(yaw), sy = std::sin(yaw);
+        for (auto dx: grid_x_) {
+            for (auto dy: grid_y_) {
+                for (auto dz: grid_z_) {
+                    octomap::point3d endpoint((float) (x + cy * dx - sy * dy), (float) (y + sy * dx + cy * dy),
+                                              (float) (z + dz));
+                    if (getQueryOccupy(endpoint)) {
+//                        sub_octomap_.updateNode(endpoint, true);//将此区域设为被占据
+                        elevation_[idx] = endpoint.z();
+                        points_[idx * 3] = endpoint.x();
+                        points_[idx * 3 + 1] = endpoint.y();
+                        points_[idx * 3 + 2] = endpoint.z();
+                        continue;  // if searched a grid is occupied.
+                    }
+                }
+                idx++;
+            }
+        }
+        // pub elevation map point cloud.
+        sensor_msgs::PointCloud2 elevation_map_pc_msgs;
+        for (int i = 0; i < points_.size(); i += 3) {
+            pcl::PointXYZ p(points_[i], points_[i + 1], points_[i + 2]);
+            pc_pub->push_back(p);
+        }
+        pcl::toROSMsg(*pc_pub, elevation_map_pc_msgs);
+        elevationPointsPublisher_.publish(elevation_map_pc_msgs);
+    }
+
+    bool OCtreeProcessor::convertOctomapToGridmap() {
         msg_mtx_.lock();
 //        robot_position_.x() = 3.5324312448501587 + std::sin(counter_ * 0.1);
 //        robot_position_.y() = 0. + 0.01 * std::sin(counter_ * 0.1);
@@ -87,40 +142,24 @@ namespace octomap {
         grid_map::Position3 max_bound{robot_position_.x() + subOctomap_range_x_ / 2,
                                       robot_position_.y() + subOctomap_range_y_ / 2,
                                       robot_position_.z() + subOctomap_range_z_ / 2};
+        std_msgs::Header msg_header = pose_msg_.header;
         msg_mtx_.unlock();
         std::cout << min_bound.transpose() << "\n" << max_bound.transpose() << std::endl;
         bool res = octomap::fromOctomap(octomap_, "elevation", map_, &min_bound, &max_bound);
         if (!res) {
             ROS_ERROR("Failed to call convert Octomap.");
-            return;
+            return false;
         }
         map_.setFrameId(frame_id_);
 //         Publish as grid map.
         grid_map_msgs::GridMap gridMapMessage;
         grid_map::GridMapRosConverter::toMessage(map_, gridMapMessage);
+//        gridMapMessage.info.header = msg_header;
+        gridMapMessage.info.header.stamp = ros::Time::now();
         gridMapPublisher_.publish(gridMapMessage);
-        counter_++;
-        std::cout << "update" << std::endl;
+        return true;
     }
 
-    void OCtreeProcessor::sliceSubOctomap(const Eigen::Vector3f &robot_position) {
-        float x{robot_position[0]};
-        float y{robot_position[1]};
-        float z{robot_position[2]};
-        for (auto dx: subOctomap_grid_x_) {
-            for (auto dy: subOctomap_grid_y_) {
-                for (auto dz: subOctomap_grid_z_) {
-                    octomap::point3d endpoint((float) x + dx, (float) y + dy, (float) z + dz);
-                    if (getQueryOccupy(endpoint)) {
-                        sub_octomap_.updateNode(endpoint, true);//将此区域设为被占据
-                    } else {
-                        sub_octomap_.updateNode(endpoint, false);
-                    }
-                }
-            }
-        }
-        std::cout << "sub map node num:" << sub_octomap_.calcNumNodes() << std::endl;
-    }
 
     bool OCtreeProcessor::getQueryOccupy(octomap::point3d query) {
         //OcTreeNode 使用OcTreeDataNode类（一些基础操作：深拷贝、浅拷贝、拷贝成员函数、删除成员函数）实现
@@ -131,7 +170,7 @@ namespace octomap {
         //getMeanChildLogOdds()
         //getMaxChildLogOdds()
         //addValue(p)    占据概率的对数加p
-        OcTreeNode *Occupied_state = octomap_.search(query);
+        OcTreeNode *Occupied_state = octomap_ori_.search(query);
         if (Occupied_state != NULL) {
             if (Occupied_state->getOccupancy() > 0.5) return true;
         } else {
@@ -147,9 +186,13 @@ namespace octomap {
     void OCtreeProcessor::robotPositionCallback(const geometry_msgs::PoseStampedConstPtr &msg) {
         std::lock_guard<std::mutex> lock(msg_mtx_);
         pose_msg_ = *msg;
-        robot_position_[0] = msg->pose.position.x;
-        robot_position_[1] = msg->pose.position.y;
-        robot_position_[2] = msg->pose.position.z;
+        robot_position_.x() = -msg->pose.position.x;
+        robot_position_.y() = msg->pose.position.y;
+        robot_position_.z() = msg->pose.position.z;
+        robot_orientation_.x() = msg->pose.orientation.x;
+        robot_orientation_.y() = msg->pose.orientation.y;
+        robot_orientation_.z() = msg->pose.orientation.z;
+        robot_orientation_.w() = msg->pose.orientation.w;
     }
 
     bool fromOctomap(octomap::OcTree &octomap,
@@ -222,11 +265,39 @@ namespace octomap {
 
 } // namespace octomap
 
+
+void pc2octo(){
+    std::string input_file = "/home/zdy/msf_ws/maps/indoor.pcd";
+    pcl::PointCloud<pcl::PointXYZ> cloud;
+    pcl::io::loadPCDFile<pcl::PointXYZ> ( input_file, cloud );
+
+    std::cout<<"point cloud loaded, piont size = "<<cloud.points.size()<<std::endl;
+
+    //声明octomap变量
+    std::cout<<"copy data into octomap..."<<std::endl;
+    // 创建八叉树对象，参数为分辨率，这里设成了0.05
+    octomap::OcTree tree( 0.03 );
+
+    for (auto p:cloud.points)
+    {
+        // 将点云里的点插入到octomap中
+        tree.updateNode( octomap::point3d(p.x, p.y, p.z), true );
+    }
+
+    // 更新octomap
+    tree.updateInnerOccupancy();
+    // 存储octomap
+    tree.writeBinary("/home/zdy/msf_ws/maps/indoor.bt");
+    std::cout<<"done."<<std::endl;
+}
+
+
 int main(int argc, char **argv) {
     ros::init(argc, argv, "octree");
     ros::NodeHandle nh("~");
     octomap::OCtreeProcessor OCP(nh);
     ros::Rate rate(10);
+//    pc2octo();
     while (ros::ok()) {
         OCP.update();
         ros::spinOnce();
