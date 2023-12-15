@@ -32,6 +32,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/data_converter.cc.o.d"
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/data_manager.cc.o"
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/data_manager.cc.o.d"
+  "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/data_recorder.cc.o"
+  "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/data_recorder.cc.o.d"
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/loguru.cc.o"
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/loguru.cc.o.d"
   "CMakeFiles/msm_utils.dir/src/multi_sensor_mapping/utils/optimization_weight.cc.o"

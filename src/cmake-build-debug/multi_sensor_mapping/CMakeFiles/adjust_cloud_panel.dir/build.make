@@ -179,20 +179,6 @@ multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend_panel.cpp.s"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping/include/panel/moc_backend_panel.cpp -o CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend_panel.cpp.s
 
-multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/flags.make
-multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o: /home/zdy/msf_ws/src/aliengo_description/src/tf_robot_pose.cpp
-multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o"
-	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o -MF CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o.d -o CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o -c /home/zdy/msf_ws/src/aliengo_description/src/tf_robot_pose.cpp
-
-multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.i"
-	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdy/msf_ws/src/aliengo_description/src/tf_robot_pose.cpp > CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.i
-
-multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.s"
-	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdy/msf_ws/src/aliengo_description/src/tf_robot_pose.cpp -o CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.s
-
 # Object files for target adjust_cloud_panel
 adjust_cloud_panel_OBJECTS = \
 "CMakeFiles/adjust_cloud_panel.dir/adjust_cloud_panel_autogen/mocs_compilation.cpp.o" \
@@ -201,8 +187,7 @@ adjust_cloud_panel_OBJECTS = \
 "CMakeFiles/adjust_cloud_panel.dir/src/panel/backend_panel.cc.o" \
 "CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_adjust_cloud_panel.cpp.o" \
 "CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_region_selection_tool.cpp.o" \
-"CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend_panel.cpp.o" \
-"CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o"
+"CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend_panel.cpp.o"
 
 # External object files for target adjust_cloud_panel
 adjust_cloud_panel_EXTERNAL_OBJECTS =
@@ -214,7 +199,6 @@ devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud
 devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_adjust_cloud_panel.cpp.o
 devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_region_selection_tool.cpp.o
 devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_backend_panel.cpp.o
-devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o
 devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/build.make
 devel/lib/libadjust_cloud_panel.so: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 devel/lib/libadjust_cloud_panel.so: /opt/ros/noetic/lib/libcv_bridge.so
@@ -402,7 +386,7 @@ devel/lib/libadjust_cloud_panel.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.
 devel/lib/libadjust_cloud_panel.so: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 devel/lib/libadjust_cloud_panel.so: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 devel/lib/libadjust_cloud_panel.so: multi_sensor_mapping/CMakeFiles/adjust_cloud_panel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library ../devel/lib/libadjust_cloud_panel.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ../devel/lib/libadjust_cloud_panel.so"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/adjust_cloud_panel.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

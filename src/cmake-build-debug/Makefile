@@ -2057,6 +2057,19 @@ incremental_pose_graph_node/fast:
 .PHONY : incremental_pose_graph_node/fast
 
 #=============================================================================
+# Target rules for targets named batch_location_node
+
+# Build rule for target.
+batch_location_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 batch_location_node
+.PHONY : batch_location_node
+
+# fast build rule for target.
+batch_location_node/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/CMakeFiles/batch_location_node.dir/build.make multi_sensor_mapping/CMakeFiles/batch_location_node.dir/build
+.PHONY : batch_location_node/fast
+
+#=============================================================================
 # Target rules for targets named matrix2xyzrpy
 
 # Build rule for target.
@@ -2159,6 +2172,19 @@ bag_rewrite_tool: cmake_check_build_system
 bag_rewrite_tool/fast:
 	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/CMakeFiles/bag_rewrite_tool.dir/build.make multi_sensor_mapping/CMakeFiles/bag_rewrite_tool.dir/build
 .PHONY : bag_rewrite_tool/fast
+
+#=============================================================================
+# Target rules for targets named key_frames_to_session
+
+# Build rule for target.
+key_frames_to_session: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 key_frames_to_session
+.PHONY : key_frames_to_session
+
+# fast build rule for target.
+key_frames_to_session/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/CMakeFiles/key_frames_to_session.dir/build.make multi_sensor_mapping/CMakeFiles/key_frames_to_session.dir/build
+.PHONY : key_frames_to_session/fast
 
 #=============================================================================
 # Target rules for targets named adjust_cloud_panel_autogen
@@ -2317,6 +2343,19 @@ incremental_pose_graph_node_autogen/fast:
 .PHONY : incremental_pose_graph_node_autogen/fast
 
 #=============================================================================
+# Target rules for targets named batch_location_node_autogen
+
+# Build rule for target.
+batch_location_node_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 batch_location_node_autogen
+.PHONY : batch_location_node_autogen
+
+# fast build rule for target.
+batch_location_node_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/CMakeFiles/batch_location_node_autogen.dir/build.make multi_sensor_mapping/CMakeFiles/batch_location_node_autogen.dir/build
+.PHONY : batch_location_node_autogen/fast
+
+#=============================================================================
 # Target rules for targets named matrix2xyzrpy_autogen
 
 # Build rule for target.
@@ -2421,6 +2460,19 @@ bag_rewrite_tool_autogen/fast:
 .PHONY : bag_rewrite_tool_autogen/fast
 
 #=============================================================================
+# Target rules for targets named key_frames_to_session_autogen
+
+# Build rule for target.
+key_frames_to_session_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 key_frames_to_session_autogen
+.PHONY : key_frames_to_session_autogen
+
+# fast build rule for target.
+key_frames_to_session_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/CMakeFiles/key_frames_to_session_autogen.dir/build.make multi_sensor_mapping/CMakeFiles/key_frames_to_session_autogen.dir/build
+.PHONY : key_frames_to_session_autogen/fast
+
+#=============================================================================
 # Target rules for targets named ndt_omp
 
 # Build rule for target.
@@ -2497,6 +2549,19 @@ cloud_icp_registration_test: cmake_check_build_system
 cloud_icp_registration_test/fast:
 	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/test/CMakeFiles/cloud_icp_registration_test.dir/build.make multi_sensor_mapping/test/CMakeFiles/cloud_icp_registration_test.dir/build
 .PHONY : cloud_icp_registration_test/fast
+
+#=============================================================================
+# Target rules for targets named lio_initializer_test
+
+# Build rule for target.
+lio_initializer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lio_initializer_test
+.PHONY : lio_initializer_test
+
+# fast build rule for target.
+lio_initializer_test/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/test/CMakeFiles/lio_initializer_test.dir/build.make multi_sensor_mapping/test/CMakeFiles/lio_initializer_test.dir/build
+.PHONY : lio_initializer_test/fast
 
 #=============================================================================
 # Target rules for targets named lidar_tag_detection_test
@@ -2614,6 +2679,19 @@ cloud_icp_registration_test_autogen: cmake_check_build_system
 cloud_icp_registration_test_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/test/CMakeFiles/cloud_icp_registration_test_autogen.dir/build.make multi_sensor_mapping/test/CMakeFiles/cloud_icp_registration_test_autogen.dir/build
 .PHONY : cloud_icp_registration_test_autogen/fast
+
+#=============================================================================
+# Target rules for targets named lio_initializer_test_autogen
+
+# Build rule for target.
+lio_initializer_test_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lio_initializer_test_autogen
+.PHONY : lio_initializer_test_autogen
+
+# fast build rule for target.
+lio_initializer_test_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f multi_sensor_mapping/test/CMakeFiles/lio_initializer_test_autogen.dir/build.make multi_sensor_mapping/test/CMakeFiles/lio_initializer_test_autogen.dir/build
+.PHONY : lio_initializer_test_autogen/fast
 
 #=============================================================================
 # Target rules for targets named lidar_tag_detection_test_autogen
@@ -3008,6 +3086,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... adjust_cloud_panel_autogen"
 	@echo "... bag_rewrite_tool_autogen"
+	@echo "... batch_location_node_autogen"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... bond_generate_messages_eus"
 	@echo "... bond_generate_messages_lisp"
@@ -3050,11 +3129,13 @@ help:
 	@echo "... grid_map_msgs_generate_messages_py"
 	@echo "... ground_segmentation_viewer_autogen"
 	@echo "... incremental_pose_graph_node_autogen"
+	@echo "... key_frames_to_session_autogen"
 	@echo "... lidar_imu_frontend_node_autogen"
 	@echo "... lidar_imu_mapping_node_autogen"
 	@echo "... lidar_imu_odometry_node_autogen"
 	@echo "... lidar_session_test_autogen"
 	@echo "... lidar_tag_detection_test_autogen"
+	@echo "... lio_initializer_test_autogen"
 	@echo "... low_cost_location_node_autogen"
 	@echo "... low_cost_location_test_autogen"
 	@echo "... low_cost_mapping_node_autogen"
@@ -3162,6 +3243,7 @@ help:
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... adjust_cloud_panel"
 	@echo "... bag_rewrite_tool"
+	@echo "... batch_location_node"
 	@echo "... cloud_2d_visualization_test"
 	@echo "... cloud_align_benchmark"
 	@echo "... cloud_icp_registration_test"
@@ -3178,6 +3260,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... incremental_pose_graph_node"
+	@echo "... key_frames_to_session"
 	@echo "... libgamepad_tests"
 	@echo "... lidar_imu_frontend_node"
 	@echo "... lidar_imu_mapping_node"
@@ -3185,6 +3268,7 @@ help:
 	@echo "... lidar_pose_inter"
 	@echo "... lidar_session_test"
 	@echo "... lidar_tag_detection_test"
+	@echo "... lio_initializer_test"
 	@echo "... low_cost_location_node"
 	@echo "... low_cost_location_test"
 	@echo "... low_cost_mapping_node"

@@ -45,6 +45,7 @@
 		"/home/zdy/lib/rs_driver/src",
 		"/usr/local/rs_driver/include",
 		"/home/zdy/msf_ws/src/multi_sensor_mapping/external/ndt-omp/include",
+		"/home/zdy/msf_ws/src/multi_sensor_mapping/external/custom_msg",
 		"/usr/include/vtk-7.1",
 		"/usr/include/freetype2",
 		"/usr/include/opencv4",

@@ -125,10 +125,24 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/po
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.s"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/backend/pose_graph_manager.cc -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.s
 
+multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
+multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/batch_locator.cc
+multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o"
+	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/batch_locator.cc
+
+multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.i"
+	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/batch_locator.cc > CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.i
+
+multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.s"
+	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/batch_locator.cc -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.s
+
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/clins_core.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/clins_core.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.i: cmake_force
@@ -142,7 +156,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/clins_mapper.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/clins_mapper.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.i: cmake_force
@@ -156,7 +170,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/fast_lio_core.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/fast_lio_core.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.i: cmake_force
@@ -170,7 +184,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/fast_lio_mapper.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/fast_lio_mapper.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_mapper.cc.i: cmake_force
@@ -184,7 +198,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_detector.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_detector.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_detector.cc.i: cmake_force
@@ -198,7 +212,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_imu_mapper.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_imu_mapper.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapper.cc.i: cmake_force
@@ -212,7 +226,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_imu_mapping_core.cc.i: cmake_force
@@ -226,7 +240,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_mapper_base.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/lidar_mapper_base.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar_mapper_base.cc.i: cmake_force
@@ -240,7 +254,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/lidar
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/low_cost_locator_manager.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/low_cost_locator_manager.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_locator_manager.cc.i: cmake_force
@@ -254,7 +268,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_c
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_cost_mapper_manager.cc.i: cmake_force
@@ -268,7 +282,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/low_c
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/mapper_manager.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/mapper_manager.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mapper_manager.cc.i: cmake_force
@@ -282,7 +296,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/mappe
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/odometry_manager.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/odometry_manager.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odometry_manager.cc.i: cmake_force
@@ -296,7 +310,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/odome
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/pose_graph_processor.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/pose_graph_processor.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_graph_processor.cc.i: cmake_force
@@ -310,7 +324,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/pose_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/tiny_lidar_locator.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/tiny_lidar_locator.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_lidar_locator.cc.i: cmake_force
@@ -324,7 +338,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_pose_graph_processor.cc.i: cmake_force
@@ -338,7 +352,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/tiny_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/grid_map_generator.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/grid_map_generator.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_map_generator.cc.i: cmake_force
@@ -352,7 +366,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/grid_m
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/lidar_map_session.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/lidar_map_session.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_session.cc.i: cmake_force
@@ -366,7 +380,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/lidar_map_unit.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/lidar_map_unit.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_map_unit.cc.i: cmake_force
@@ -380,7 +394,7 @@ multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/lidar_
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/flags.make
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o: /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/surfel_octo_map.cc
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o: multi_sensor_mapping/CMakeFiles/msm_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o -MF CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o.d -o CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.o -c /home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/map/surfel_octo_map.cc
 
 multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/map/surfel_octo_map.cc.i: cmake_force
@@ -397,6 +411,7 @@ msm_core_OBJECTS = \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/loop_closure_detector.cc.o" \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_information.cc.o" \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.o" \
+"CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o" \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o" \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o" \
 "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o" \
@@ -424,6 +439,7 @@ devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/msm_core_
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/loop_closure_detector.cc.o
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_information.cc.o
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.o
+devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/fast_lio_core.cc.o
@@ -790,7 +806,7 @@ devel/lib/libmsm_core.so: /usr/lib/x86_64-linux-gnu/libboost_timer.so
 devel/lib/libmsm_core.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 devel/lib/libmsm_core.so: /usr/local/lib/libmetis-gtsam.so
 devel/lib/libmsm_core.so: multi_sensor_mapping/CMakeFiles/msm_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX shared library ../devel/lib/libmsm_core.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zdy/msf_ws/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX shared library ../devel/lib/libmsm_core.so"
 	cd /home/zdy/msf_ws/src/cmake-build-debug/multi_sensor_mapping && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/msm_core.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

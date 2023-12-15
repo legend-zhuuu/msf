@@ -31,11 +31,11 @@
 -I/usr/include/opencv4
 -I/usr/local/lib/cmake/GTSAM/../../../include
 -I/usr/include
--I/opt/ros/noetic/include
 -I/home/zdy/lib/rs_driver/src
 -I/usr/local/rs_driver/include
 -I/usr/local/include
 -I/home/zdy/msf_ws/src/multi_sensor_mapping/external/ndt-omp/include
+-I/home/zdy/msf_ws/src/multi_sensor_mapping/external/custom_msg
 -DROS_BUILD_SHARED_LIBS=1
 -DROS_BUILD_SHARED_LIBS=1
 -DROS_PACKAGE_NAME="multi_sensor_mapping"

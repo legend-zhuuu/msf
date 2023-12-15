@@ -6,4 +6,5 @@ devel/
 bags/
 maps/
 models/
-
+**/cmake-build-debug
+**/.idea

@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_information.cc.o.d"
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.o"
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/backend/pose_graph_manager.cc.o.d"
+  "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o"
+  "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/batch_locator.cc.o.d"
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o"
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_core.cc.o.d"
   "CMakeFiles/msm_core.dir/src/multi_sensor_mapping/core/clins_mapper.cc.o"

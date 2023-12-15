@@ -4,8 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/adjust_cloud_panel_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/adjust_cloud_panel_autogen.dir/ParseCache.txt"
   "adjust_cloud_panel_autogen"
-  "CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o"
-  "CMakeFiles/adjust_cloud_panel.dir/__/aliengo_description/src/tf_robot_pose.cpp.o.d"
   "CMakeFiles/adjust_cloud_panel.dir/adjust_cloud_panel_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/adjust_cloud_panel.dir/adjust_cloud_panel_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/adjust_cloud_panel.dir/include/panel/moc_adjust_cloud_panel.cpp.o"

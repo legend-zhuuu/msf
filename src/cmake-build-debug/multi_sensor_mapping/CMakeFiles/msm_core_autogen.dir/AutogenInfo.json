@@ -378,10 +378,6 @@
 		"/opt/clion-2023.2.2/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindBoost.cmake",
 		"/opt/clion-2023.2.2/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake",
 		"/opt/clion-2023.2.2/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake",
-		"/opt/ros/noetic/share/octomap/octomap-config-version.cmake",
-		"/opt/ros/noetic/share/octomap/octomap-config.cmake",
-		"/opt/ros/noetic/share/octomap/octomap-targets.cmake",
-		"/opt/ros/noetic/share/octomap/octomap-targets-none.cmake",
 		"/usr/local/lib/cmake/rs_driver/rs_driverConfigVersion.cmake",
 		"/usr/local/lib/cmake/rs_driver/rs_driverConfig.cmake",
 		"/usr/local/lib/cmake/GeographicLib/geographiclib-config-version.cmake",
@@ -516,6 +512,7 @@
 		"/home/zdy/lib/rs_driver/src",
 		"/usr/local/rs_driver/include",
 		"/home/zdy/msf_ws/src/multi_sensor_mapping/external/ndt-omp/include",
+		"/home/zdy/msf_ws/src/multi_sensor_mapping/external/custom_msg",
 		"/usr/include/vtk-7.1",
 		"/usr/include/freetype2",
 		"/usr/include/opencv4",
@@ -576,6 +573,11 @@
 		],
 		[
 			"/home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/backend/pose_graph_manager.cc",
+			"Mu",
+			null
+		],
+		[
+			"/home/zdy/msf_ws/src/multi_sensor_mapping/src/multi_sensor_mapping/core/batch_locator.cc",
 			"Mu",
 			null
 		],
