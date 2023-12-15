@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0745002e-836f-4a2f-b346-b90528ccc9f3" name="aliengo">
+        <fileTransfer accessType="SFTP" host="192.168.111.234" port="22" sshConfigId="ddfbadab-50d0-4bf0-bb14-73e43329d2a6" sshConfig="zdy@192.168.111.234:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

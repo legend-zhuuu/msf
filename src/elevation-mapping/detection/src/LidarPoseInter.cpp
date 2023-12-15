@@ -29,13 +29,14 @@ Eigen::Vector3f est_vel_world_based(0.f, 0.f, 0.f);
 class SensorDataProcessor {
 public:
     SensorDataProcessor(const ros::NodeHandle &nh) : nh_(nh) {
+        nh_.param<std::string>("imu_topic", imu_topic_, "/imu/data");
         lidar_pose_sub_ = nh_.subscribe<geometry_msgs::PoseStamped>("/lidar_pose", 10,
                                                                     &SensorDataProcessor::LidarPoseCallback, this);
         odom_velocity_sub_ = nh_.subscribe<nav_msgs::Odometry>("/estimate_velocity", 10,
                                                                &SensorDataProcessor::OdomVelCallback, this);
 //        est_vel_sub_ = nh_.subscribe<aliengo_s2r::PolicyState>("/aliengo/policy", 10, &SensorDataProcessor::EstVelCallback,
 //                                                   this);
-        imu_sub_ = nh_.subscribe<sensor_msgs::Imu>("/imu/data", 100, &SensorDataProcessor::ImuCallback, this);
+        imu_sub_ = nh_.subscribe<sensor_msgs::Imu>(imu_topic_, 100, &SensorDataProcessor::ImuCallback, this);
         robor_base_pose_inter_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/robot_base_pose_inter", 1, true);
     }
 
@@ -49,6 +50,7 @@ public:
 
 private:
     ros::NodeHandle nh_;
+    std::string imu_topic_;
     // prepare subscriber and publisher
     tf::TransformListener tf_listener_;
     ros::Publisher robor_base_pose_inter_pub_;

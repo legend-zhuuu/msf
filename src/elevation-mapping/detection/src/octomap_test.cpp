@@ -8,7 +8,7 @@ namespace octomap {
     OCtreeProcessor::OCtreeProcessor(ros::NodeHandle nh) : nh_(nh) {
         parseParameter();
         loadOCtreeFile();
-        gridMapPublisher_ = nh_.advertise<grid_map_msgs::GridMap>(grid_pub_topic_, 10, true);
+        gridMapPublisher_ = nh_.advertise<grid_map_msgs::GridMap>(grid_pub_topic_, 10);
         elevationPointsPublisher_ = nh_.advertise<sensor_msgs::PointCloud2>(point_cloud_pub_topic_, 10, true);
         robotOdomSubscriber_ = nh_.subscribe<geometry_msgs::PoseStamped>(robot_pos_sub_topic_, 10,
                                                                          &OCtreeProcessor::robotPositionCallback, this);
@@ -85,6 +85,7 @@ namespace octomap {
         bool trans = convertOctomapToGridmap();
         if (!trans) {
             ROS_ERROR("Failed to convert Octomap to Gridmap.");
+            std::cout << "error" << std::endl;
         }
         counter_++;
         std::cout << "update" << std::endl;
@@ -155,7 +156,7 @@ namespace octomap {
         grid_map_msgs::GridMap gridMapMessage;
         grid_map::GridMapRosConverter::toMessage(map_, gridMapMessage);
 //        gridMapMessage.info.header = msg_header;
-        gridMapMessage.info.header.stamp = ros::Time::now();
+        gridMapMessage.info.header.stamp = msg_header.stamp;
         gridMapPublisher_.publish(gridMapMessage);
         return true;
     }
@@ -186,7 +187,7 @@ namespace octomap {
     void OCtreeProcessor::robotPositionCallback(const geometry_msgs::PoseStampedConstPtr &msg) {
         std::lock_guard<std::mutex> lock(msg_mtx_);
         pose_msg_ = *msg;
-        robot_position_.x() = -msg->pose.position.x;
+        robot_position_.x() = msg->pose.position.x;
         robot_position_.y() = msg->pose.position.y;
         robot_position_.z() = msg->pose.position.z;
         robot_orientation_.x() = msg->pose.orientation.x;

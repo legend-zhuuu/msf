@@ -1,0 +1,3 @@
+[submodule "src/multi_sensor_mapping"]
+	path = src/multi_sensor_mapping
+	url = https://gitee.com/csc105_slam_group/multi_sensor_mapping.git

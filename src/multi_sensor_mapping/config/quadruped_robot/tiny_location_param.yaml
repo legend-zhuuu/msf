@@ -1,6 +1,0 @@
-auto_start: false
-target_resolution: 0.5
-source_resolution: 0.2
-registration_interval: 1.0
-num_cores: 2
-direction_offset: 0.
