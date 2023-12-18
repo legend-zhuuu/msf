@@ -1,9 +1,9 @@
 <launch>
   <arg name="policy_dir"/>
   <arg name="ns" default="aliengo"/>
-  <arg name="gridmap_topic" default="/elevation_mapping/elevation_map_raw"/>
+  <arg name="gridmap_topic" default="/gridmap_from_octomap_filter"/>
   <arg name="gridmap_layer" default="elevation_inpainted"/>
-  <arg name="pose_topic" default="/livox_pose"/>
+  <arg name="pose_topic" default="/robot_base_pose_inter"/>
   <arg name="cmd_vel_topic" default="cmd_vel"/>
 
   <include file="$(find lqc-ros)/launch/lqc.launch">

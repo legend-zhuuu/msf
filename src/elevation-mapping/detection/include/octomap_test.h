@@ -12,6 +12,7 @@
 #include <octomap/octomap.h>
 #include <octomap/OcTree.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <grid_map_msgs/GridMap.h>
 #include <grid_map_ros/grid_map_ros.hpp>
 #include <grid_map_octomap/GridMapOctomapConverter.hpp>
@@ -50,7 +51,7 @@ namespace octomap {
 
         bool convertOctomapToGridmap();
 
-        void robotPositionCallback(const geometry_msgs::PoseStampedConstPtr &msg);
+        void robotPositionCallback(const geometry_msgs::PoseWithCovarianceStampedConstPtr &msg);
 
         ros::NodeHandle nh_;
         float subOctomap_range_x_ = 2.5f;
@@ -76,7 +77,7 @@ namespace octomap {
         std::string point_cloud_pub_topic_;
         std::string robot_pos_sub_topic_;
         std::string octomap_filename_;
-        geometry_msgs::PoseStamped pose_msg_;
+        geometry_msgs::PoseWithCovarianceStamped pose_msg_;
         ros::Publisher gridMapPublisher_;
         ros::Publisher elevationPointsPublisher_;
         ros::Subscriber robotOdomSubscriber_;

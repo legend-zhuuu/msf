@@ -1,5 +1,6 @@
 #include <grid_map_msgs/GridMap.h>
 #include <nav_msgs/Odometry.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <pcl/point_cloud.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/filters/conditional_removal.h>
@@ -15,6 +16,7 @@
 #include "detection/elevationSample.h"
 
 #include<time.h>
+
 typedef pcl::PointCloud<pcl::PointXYZ> VPointCloud;
 #define width 71
 #define length 71
@@ -23,7 +25,7 @@ typedef pcl::PointCloud<pcl::PointXYZ> VPointCloud;
 // Create grid map.
 grid_map::GridMap map({"elevation"});
 grid_map::GridMap map_inpainted({"elevation_inpainted"});
-pcl::PointCloud<pcl::PointXYZ>::Ptr current_assembled_map (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr current_assembled_map(new pcl::PointCloud<pcl::PointXYZ>);
 ros::Publisher grid_pub;
 ros::Publisher elevation_pub;
 ros::Publisher elevation_pc_pub;
@@ -181,7 +183,7 @@ void range_remove(VPointCloud::Ptr &in_cloud_ptr,
 void Point2grid(const sensor_msgs::PointCloud2ConstPtr &receivePoint) {
     pcl::fromROSMsg(*receivePoint, *current_assembled_map);
 
-    if(false){
+    if (false) {
         ros::Time timestamp = receivePoint->header.stamp;
 
         sensor_msgs::PointCloud2 publishPoint;
@@ -225,18 +227,19 @@ void Point2grid(const sensor_msgs::PointCloud2ConstPtr &receivePoint) {
 }
 
 
-void MapPositionUpdate(const geometry_msgs::PoseStampedConstPtr &pose) {
+void MapPositionUpdate(const geometry_msgs::PoseWithCovarianceStampedConstPtr &pose) {
     // Move map with the center of robot's base position
     // Pose's frame_id should be same with map's frame_id
 
     // 1. filter point cloud
     clock_t time1 = clock();
-    geometry_msgs::PoseStamped pose_stamped;
+    geometry_msgs::PoseWithCovarianceStamped pose_stamped;
     pose_stamped.header = pose->header;
     pose_stamped.pose = pose->pose;
-    Eigen::Vector3d robot_position(pose_stamped.pose.position.x, pose_stamped.pose.position.y, pose_stamped.pose.position.z);
-    Eigen::Quaterniond robot_orientation(pose_stamped.pose.orientation.w, pose_stamped.pose.orientation.x,
-                                         pose_stamped.pose.orientation.y, pose_stamped.pose.orientation.z);
+    Eigen::Vector3d robot_position(pose_stamped.pose.pose.position.x, pose_stamped.pose.pose.position.y,
+                                   pose_stamped.pose.pose.position.z);
+    Eigen::Quaterniond robot_orientation(pose_stamped.pose.pose.orientation.w, pose_stamped.pose.pose.orientation.x,
+                                         pose_stamped.pose.pose.orientation.y, pose_stamped.pose.pose.orientation.z);
     double range = 1.0;
     double robot_x_max = robot_position.x() + range;
     double robot_x_min = robot_position.x() - range;
@@ -286,8 +289,8 @@ void MapPositionUpdate(const geometry_msgs::PoseStampedConstPtr &pose) {
 //    map.setGeometry(grid_map::Length(grid_map_size_x, grid_map_size_y),
 //                    grid_map_resolution,
 //                    grid_map::Position(grid_map_position_x, grid_map_position_y));
-    grid_map::Position position_new(pose_stamped.pose.position.x,
-                                    pose_stamped.pose.position.y);
+    grid_map::Position position_new(pose_stamped.pose.pose.position.x,
+                                    pose_stamped.pose.pose.position.y);
     map.move(position_new);
     ROS_INFO_THROTTLE(
             2.0,
@@ -326,8 +329,8 @@ void MapPositionUpdate(const geometry_msgs::PoseStampedConstPtr &pose) {
     // 1. get transform matrix
     tf::Vector3 pos(0.0, 0.0, 0.0);
     double roll, pitch, yaw;
-    tf::Quaternion ori(pose_stamped.pose.orientation.x, pose_stamped.pose.orientation.y,
-                       pose_stamped.pose.orientation.z, pose_stamped.pose.orientation.w);
+    tf::Quaternion ori(pose_stamped.pose.pose.orientation.x, pose_stamped.pose.pose.orientation.y,
+                       pose_stamped.pose.pose.orientation.z, pose_stamped.pose.pose.orientation.w);
     tf::Matrix3x3(ori).getRPY(roll, pitch, yaw);
     tf::Quaternion ori_yaw;
     ori_yaw.setRPY(0, 0, yaw);
@@ -405,7 +408,8 @@ void ReadParameter(ros::NodeHandle &nh_param) {
                                 "/mapping_node/scan2mapEstvelInterpolate_odometry");
     nh_param.param<std::string>("grid_pub_topic", grid_pub_topic, "/grid_map");
     nh_param.param<std::string>("elevation_pub_topic", elevation_pub_topic, "/elevation_map");
-    nh_param.param<std::string>("elevation_pointCloud_pub_topic", elevation_pointCloud_pub_topic, "/elevation_pointCloud_map");
+    nh_param.param<std::string>("elevation_pointCloud_pub_topic", elevation_pointCloud_pub_topic,
+                                "/elevation_pointCloud_map");
     nh_param.param<std::string>("grid_frame_id", grid_frame_id, "/map");
     nh_param.param<double>("grid_map_size_x", grid_map_size_x, 5.0);
     nh_param.param<double>("grid_map_size_y", grid_map_size_y, 5.0);
@@ -440,8 +444,8 @@ int main(int argc, char **argv) {
 
     point_sub = nh.subscribe<sensor_msgs::PointCloud2>(point_sub_topic, 10, Point2grid);
 
-        // filt point cloud to generate elevation map.
-    position_sub = nh.subscribe<geometry_msgs::PoseStamped>(position_sub_topic, 10, MapPositionUpdate);
+    // filt point cloud to generate elevation map.
+    position_sub = nh.subscribe<geometry_msgs::PoseWithCovarianceStamped >(position_sub_topic, 10, MapPositionUpdate);
     map_inpainted_sub = nh.subscribe("/grid_map_filter_demo/filtered_map", 10,
                                      UpdateGridMapInpainted);
     elevation_pub = nh.advertise<detection::elevationSample>(elevation_pub_topic, 10, true);
@@ -450,7 +454,7 @@ int main(int argc, char **argv) {
 //
     // Initial grid map.
     map.setFrameId("map");
-    map.setPosition(grid_map::Position(grid_map_position_x,grid_map_position_y));
+    map.setPosition(grid_map::Position(grid_map_position_x, grid_map_position_y));
     map.setGeometry(grid_map::Length(grid_map_size_x, grid_map_size_y),
                     grid_map_resolution,
                     grid_map::Position(grid_map_position_x, grid_map_position_y));

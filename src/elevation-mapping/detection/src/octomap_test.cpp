@@ -10,7 +10,7 @@ namespace octomap {
         loadOCtreeFile();
         gridMapPublisher_ = nh_.advertise<grid_map_msgs::GridMap>(grid_pub_topic_, 10);
         elevationPointsPublisher_ = nh_.advertise<sensor_msgs::PointCloud2>(point_cloud_pub_topic_, 10, true);
-        robotOdomSubscriber_ = nh_.subscribe<geometry_msgs::PoseStamped>(robot_pos_sub_topic_, 10,
+        robotOdomSubscriber_ = nh_.subscribe<geometry_msgs::PoseWithCovarianceStamped>(robot_pos_sub_topic_, 10,
                                                                          &OCtreeProcessor::robotPositionCallback, this);
         robot_position_.setZero();
         robot_orientation_.setIdentity();
@@ -37,7 +37,7 @@ namespace octomap {
     void OCtreeProcessor::parseParameter() {
         nh_.param<std::string>("robot_pos_topic", robot_pos_sub_topic_, "/robot_base_pose_inter");
         nh_.param<std::string>("grid_pub_topic", grid_pub_topic_, "/gridmap_from_octomap");
-        nh_.param<std::string>("grid_pub_topic", point_cloud_pub_topic_, "/elevation_from_octomap");
+        nh_.param<std::string>("pc_pub_topic", point_cloud_pub_topic_, "/elevation_from_octomap");
         nh_.param<std::string>("frame_id", frame_id_, "map");
         nh_.param<std::string>("octomap_filename", octomap_filename_,
                                "/home/zdy/msf_ws/maps/azure_livox_hand_2023-11-07.bt");
@@ -88,7 +88,6 @@ namespace octomap {
             std::cout << "error" << std::endl;
         }
         counter_++;
-        std::cout << "update" << std::endl;
     }
 
     void OCtreeProcessor::sliceSubOctomap() {
@@ -145,7 +144,7 @@ namespace octomap {
                                       robot_position_.z() + subOctomap_range_z_ / 2};
         std_msgs::Header msg_header = pose_msg_.header;
         msg_mtx_.unlock();
-        std::cout << min_bound.transpose() << "\n" << max_bound.transpose() << std::endl;
+//        std::cout << min_bound.transpose() << "\n" << max_bound.transpose() << std::endl;
         bool res = octomap::fromOctomap(octomap_, "elevation", map_, &min_bound, &max_bound);
         if (!res) {
             ROS_ERROR("Failed to call convert Octomap.");
@@ -184,16 +183,16 @@ namespace octomap {
         return sub_octomap_;
     }
 
-    void OCtreeProcessor::robotPositionCallback(const geometry_msgs::PoseStampedConstPtr &msg) {
+    void OCtreeProcessor::robotPositionCallback(const geometry_msgs::PoseWithCovarianceStampedConstPtr &msg) {
         std::lock_guard<std::mutex> lock(msg_mtx_);
         pose_msg_ = *msg;
-        robot_position_.x() = msg->pose.position.x;
-        robot_position_.y() = msg->pose.position.y;
-        robot_position_.z() = msg->pose.position.z;
-        robot_orientation_.x() = msg->pose.orientation.x;
-        robot_orientation_.y() = msg->pose.orientation.y;
-        robot_orientation_.z() = msg->pose.orientation.z;
-        robot_orientation_.w() = msg->pose.orientation.w;
+        robot_position_.x() = msg->pose.pose.position.x;
+        robot_position_.y() = msg->pose.pose.position.y;
+        robot_position_.z() = msg->pose.pose.position.z;
+        robot_orientation_.x() = msg->pose.pose.orientation.x;
+        robot_orientation_.y() = msg->pose.pose.orientation.y;
+        robot_orientation_.z() = msg->pose.pose.orientation.z;
+        robot_orientation_.w() = msg->pose.pose.orientation.w;
     }
 
     bool fromOctomap(octomap::OcTree &octomap,
@@ -268,7 +267,7 @@ namespace octomap {
 
 
 void pc2octo(){
-    std::string input_file = "/home/zdy/msf_ws/maps/101_indoor.pcd";
+    std::string input_file = "/home/zdy/msf_ws/maps/1.pcd";
     pcl::PointCloud<pcl::PointXYZ> cloud;
     pcl::io::loadPCDFile<pcl::PointXYZ> ( input_file, cloud );
 
@@ -288,7 +287,7 @@ void pc2octo(){
     // 更新octomap
     tree.updateInnerOccupancy();
     // 存储octomap
-    tree.writeBinary("/home/zdy/msf_ws/maps/101_indoor.bt");
+    tree.writeBinary("/home/zdy/msf_ws/maps/1.bt");
     std::cout<<"done."<<std::endl;
 }
 
@@ -297,8 +296,8 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "octree");
     ros::NodeHandle nh("~");
     octomap::OCtreeProcessor OCP(nh);
-    ros::Rate rate(10);
-//    pc2octo();
+    ros::Rate rate(50);
+    pc2octo();
     while (ros::ok()) {
         OCP.update();
         ros::spinOnce();

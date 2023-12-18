@@ -2,6 +2,7 @@
 // Created by zdy on 23-10-16.
 //
 #include "geometry_msgs/PoseStamped.h"
+#include "geometry_msgs/PoseWithCovarianceStamped.h"
 #include "sensor_msgs/Imu.h"
 #include "nav_msgs/Odometry.h"
 #include <ros/ros.h>
@@ -38,7 +39,7 @@ public:
 //        est_vel_sub_ = nh_.subscribe<aliengo_s2r::PolicyState>("/aliengo/policy", 10, &SensorDataProcessor::EstVelCallback,
 //                                                   this);
         imu_sub_ = nh_.subscribe<sensor_msgs::Imu>(imu_topic_, 100, &SensorDataProcessor::ImuCallback, this);
-        robor_base_pose_inter_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/robot_base_pose_inter", 1, true);
+        robor_base_pose_inter_pub_ = nh_.advertise<geometry_msgs::PoseWithCovarianceStamped>("/robot_base_pose_inter", 1, true);
     }
 
     void LidarPoseCallback(const geometry_msgs::PoseStampedConstPtr &lidar_pose);
@@ -204,19 +205,19 @@ void SensorDataProcessor::ImuCallback(const sensor_msgs::Imu::ConstPtr &imu_msg)
 //            current_pose = next_pose;
 //            current_orientation = next_orientation;
         }
-        geometry_msgs::PoseStamped pose_lidar, pose_base;
+        geometry_msgs::PoseWithCovarianceStamped pose_lidar, pose_base;
         // get the transform between map and robot base
         try {
             current_pose = current_pose + est_vel_world_based * 0.02;
             pose_base.header = imu_msg->header;
-            pose_base.header.frame_id = "/map";
-            pose_base.pose.position.x = current_pose.x();
-            pose_base.pose.position.y = current_pose.y();
-            pose_base.pose.position.z = current_pose.z();
-            pose_base.pose.orientation.x = current_orientation.x();
-            pose_base.pose.orientation.y = current_orientation.y();
-            pose_base.pose.orientation.z = current_orientation.z();
-            pose_base.pose.orientation.w = current_orientation.w();
+            pose_base.header.frame_id = "map";
+            pose_base.pose.pose.position.x = current_pose.x();
+            pose_base.pose.pose.position.y = current_pose.y();
+            pose_base.pose.pose.position.z = current_pose.z();
+            pose_base.pose.pose.orientation.x = current_orientation.x();
+            pose_base.pose.pose.orientation.y = current_orientation.y();
+            pose_base.pose.pose.orientation.z = current_orientation.z();
+            pose_base.pose.pose.orientation.w = current_orientation.w();
             robor_base_pose_inter_pub_.publish(pose_base);
 //            std::cout<<pose_base.pose<<std::endl;
         }

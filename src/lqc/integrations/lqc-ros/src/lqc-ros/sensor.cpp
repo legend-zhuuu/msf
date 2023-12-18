@@ -99,7 +99,7 @@ bool HeightmapSensor::init(std::set<Observation> &requirements) {
 
 bool HeightmapSensor::isMapUptodate(const std::string &info) const {
   auto heightmap_lag = ros::Time::now() - grid_map_msg_.info.header.stamp;
-  if (heightmap_lag < ros::Duration(0.5)) return true;
+  if (heightmap_lag < ros::Duration(0.8)) return true;
   lg::warn(info, " due to outdated heightmap received ", heightmap_lag, "s ago.");
   return false;
 }
@@ -217,6 +217,7 @@ void HeightmapSensor::gridMapCallback(const grid_map_msgs::GridMap::ConstPtr &ms
 void HeightmapSensor::poseCallback(const PoseMsgType::ConstPtr &msg) {
   LockGuard lock(msg_mtx_);
   pose_msg_ = *msg;
+//  std::cout<<pose_msg_.header.stamp<<std::endl;
   orn_.set(msg->pose.pose.orientation.w,
            msg->pose.pose.orientation.x,
            msg->pose.pose.orientation.y,
