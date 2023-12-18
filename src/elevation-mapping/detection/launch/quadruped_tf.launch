@@ -1,0 +1,96 @@
+<launch>
+    <arg name="robot" default="hand"/> <!--hand aliengo go1 b1-->
+
+    <!-- lidar up of aliengo -->
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2lidar" args="-0.320 0.0 -0.147 0 0 0 livox_frame aliengo"/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2lidar" args="0.0 0.0 0.447 0 0 0 world camera_init"/> -->
+
+	<!-- lidar down of aliengo-->
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2lidar" args="0.0 0.0 -0.147 1.57 3.14 0 livox_frame aliengo"/> -->
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2lidar" args="0.0 0.0 0.38 -1.57 0 0 world camera_init"/> -->
+
+    <group if="$(eval arg('robot')=='hand')">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2lidar" args="0. 0. 0. 0. 0. 0. world camera_init"/>
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_pose2base" args="0. 0. 0. -1.571 -1.046 0. aft_mapped aliengo"/>
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2chassie" args="0. 0. 0. 0. 0. 0. aliengo livox_chassie"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_up" args="0.0242 0. 0.0521 1.571 0. 1.046 livox_chassie livox_up"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_quad2base" args="0. 0. 0. 0. 0. 0. aliengo base"/>
+
+    </group>
+
+    <group if="$(eval arg('robot')=='b1')">
+
+        <!-- world to init odom (according to the standing height of the robot, not necessary)-->
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2odom" args="0. 0. 0. 1.571 0. 0. world camera_init"/>
+
+        <!-- pose to aliengo (according to the lidar used for o om, which is equal to livox_up to b1 for now)-->
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_pose2base" args="0. 0.207 -0.484 -1.571 -1.046 0. aft_mapped aliengo"/>
+
+        <!-- aliengo to head chassie (may not accurate in x)-->
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2chassie" args="0.5050 0. 0. 0. 0. 0. aliengo livox_chassie"/>
+
+        <!-- head chassie to lidar (according to the work piece)-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_up" args="0.0178 0. 0.06397 1.571 0. 1.046 livox_chassie livox_up"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_down" args="0.0178 0. -0.06397 1.571 0. 2.094 livox_chassie livox_down"/>
+
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_quad2base" args="0. 0. 0. 0. 0. 0. aliengo base"/>
+        <!-- pub aliengo joint state-->
+        <param name="robot_description" command="$(find xacro)/xacro $(find b1_description)/xacro/robot.xacro DEBUG:=false"/>
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="aliengo_state_publisher">
+            <remap from="joint_states" to="/quadruped/joint_states" />
+            <param name="publish_frequency" type="double" value="10000.0"/>
+        </node>
+    </group>
+
+    <group if="$(eval arg('robot')=='aliengo')">
+
+        <!-- world to init odom (according to the standing height of the robot, not necessary)-->
+	    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2odom" args="0.381 0. 0.140 1.571 0. 1.082 world camera_init"/> -->
+
+        <!-- pose to aliengo (according to the lidar used for odom, which is equal to livox_up to go1 for now)-->
+	    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="tf_pose2base" args="0. 0.134 -0.360 -1.571 -1.082 0. aft_mapped aliengo"/> -->
+
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2odom" args="0. 0. 0.140 0. 0. 0. world camera_init"/>
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_pose2base" args="0. 0. -0.035 0. 0. 0. aft_mapped aliengo"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2imu" args="0. 0. 0.035 0. 0. 0. aliengo imu"/>
+        <!-- aliengo to head chassie (may not accurate in x)-->
+	    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2chassie" args="0.35472 0. 0. 0. 0. 0. aliengo livox_chassie"/>
+
+        <!-- head chassie to lidar (according to the work piece)-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_up" args="0.02624 0. 0.05076 1.571 0. 1.0821 livox_chassie livox_up"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_down" args="0.01190 0. -0.05894 1.571 0. 2.2689 livox_chassie livox_down"/>
+
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_quad2base" args="0. 0. 0. 0. 0. 0. aliengo base"/>
+        <!-- pub aliengo joint state-->
+        <param name="robot_description" command="$(find xacro)/xacro $(find aliengo_description)/xacro/robot.xacro DEBUG:=false"/>
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="aliengo_state_publisher">
+            <remap from="joint_states" to="/aliengo/joint_states" />
+            <param name="publish_frequency" type="double" value="10000.0"/>
+        </node>
+    </group>
+    
+    <group if="$(eval arg('robot')=='go1')">
+
+        <!-- world to init odom (according to the standing height of the robot, not necessary)-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_world2odom" args="0. 0. 0.120 1.571 0. 0. world camera_init"/>
+
+        <!-- pose to go1 (according to the lidar used for odom, which is equal to livox_up to go1 for now)-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_pose2base" args="0. 0.117 -0.307 -1.571 -1.046 0. aft_mapped aliengo"/>
+
+        <!-- go1 to head chassie (may not accurate in x) TODO: error in z axis-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_base2chassie" args="0.30 0. 0. 0. 0. 0. aliengo livox_chassie"/>
+
+        <!-- head chassie to lidar (according to the work piece)-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_up" args="0.0242 0. 0.0521 1.571 0. 1.046 livox_chassie livox_up"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_chassie2livox_down" args="0.0242 0. -0.0521 1.571 0. 2.094 livox_chassie livox_down"/>
+
+        <node pkg="tf2_ros" type="static_transform_publisher" name="tf_quad2base" args="0. 0. 0. 0. 0. 0. aliengo base"/>
+        <!-- pub go1 joint state-->
+        <param name="robot_description" command="$(find xacro)/xacro $(find go1_description)/xacro/robot.xacro"/>
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="go1_state_publisher" >
+            <remap from="joint_states" to="/go1/joint_states" />
+            <param name="publish_frequency" value="10000.0"/>
+        </node>
+    </group>
+
+</launch>

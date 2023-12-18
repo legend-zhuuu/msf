@@ -268,7 +268,7 @@ namespace octomap {
 
 
 void pc2octo(){
-    std::string input_file = "/home/zdy/msf_ws/maps/indoor.pcd";
+    std::string input_file = "/home/zdy/msf_ws/maps/101_indoor.pcd";
     pcl::PointCloud<pcl::PointXYZ> cloud;
     pcl::io::loadPCDFile<pcl::PointXYZ> ( input_file, cloud );
 
@@ -288,7 +288,7 @@ void pc2octo(){
     // 更新octomap
     tree.updateInnerOccupancy();
     // 存储octomap
-    tree.writeBinary("/home/zdy/msf_ws/maps/indoor.bt");
+    tree.writeBinary("/home/zdy/msf_ws/maps/101_indoor.bt");
     std::cout<<"done."<<std::endl;
 }
 

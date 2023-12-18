@@ -30,6 +30,7 @@ class SensorDataProcessor {
 public:
     SensorDataProcessor(const ros::NodeHandle &nh) : nh_(nh) {
         nh_.param<std::string>("imu_topic", imu_topic_, "/imu/data");
+        nh_.param<std::string>("robot", robot_name_, "aliengo");
         lidar_pose_sub_ = nh_.subscribe<geometry_msgs::PoseStamped>("/lidar_pose", 10,
                                                                     &SensorDataProcessor::LidarPoseCallback, this);
         odom_velocity_sub_ = nh_.subscribe<nav_msgs::Odometry>("/estimate_velocity", 10,
@@ -51,6 +52,7 @@ public:
 private:
     ros::NodeHandle nh_;
     std::string imu_topic_;
+    std::string robot_name_;
     // prepare subscriber and publisher
     tf::TransformListener tf_listener_;
     ros::Publisher robor_base_pose_inter_pub_;
@@ -64,8 +66,8 @@ private:
 void SensorDataProcessor::LidarPoseCallback(const geometry_msgs::PoseStampedConstPtr &lidar_pose) {
     // update robot pose when lidar pose updated
     try {
-        tf_listener_.waitForTransform("/map", "/base", ros::Time(0), ros::Duration(5));
-        tf_listener_.lookupTransform("/map", "/base", ros::Time(0), robotBase2Map);
+        tf_listener_.waitForTransform("/map", robot_name_, ros::Time(0), ros::Duration(5));
+        tf_listener_.lookupTransform("/map", robot_name_, ros::Time(0), robotBase2Map);
         current_pose.x() = robotBase2Map.getOrigin().x();
         current_pose.y() = robotBase2Map.getOrigin().y();
         current_pose.z() = robotBase2Map.getOrigin().z();
